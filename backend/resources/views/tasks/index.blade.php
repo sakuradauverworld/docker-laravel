@@ -3,13 +3,24 @@
 @section('content')
 
 <div class="container">
+<form class="form-inline" action="{{route('tasks.index', ['id' => $current_folder_id])}}">
+  <div class="form-group">
+  <input type="text" name="keyword"  class="form-control" placeholder="タイトルを入力">
+  <input type="hidden" name="folder_id" value="{{$current_folder_id}}">
+  </div>
+  <input type="submit" value="検索" class="btn btn-info">
+</form>
   <div class="row">
     <div class="col col-md-4">
       <nav class="panel panel-default">
+      <div class="col-sm-4" style="padding:20px 0; padding-left:0px;">
+</div> 
+<div class="col-sm-4" style="padding:20px 0; padding-left:0px;">
+</div>
         <div class="panel-heading">フォルダ</div>
         <div class="panel-body">
           <a href="{{ route('folders.create') }}" class="btn btn-default btn-block">
-            フォルダを追加testする
+            フォルダを追加する
           </a>
         </div>
         <div class="list-group">
