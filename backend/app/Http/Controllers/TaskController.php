@@ -32,18 +32,12 @@ class TaskController extends Controller
   {
     $tasks = $query->where('title','like','%'.$keyword.'%')
       ->where('folder_id',$request->folder_id)
-    //   ->where('user_id',Auth::id())
       ->get();
   }else{
     // 選ばれたフォルダに紐づくタスクを取得する
     $tasks = $folder->tasks()->get();
   }
         
-
-       
-
-        // どのタスクがどのユーザーによって作られたか
-        // タスクテーブルにユーザーIDを追加する
         return view('tasks/index', [
             'folders' => $folders,
             'current_folder_id' => $folder->id,
